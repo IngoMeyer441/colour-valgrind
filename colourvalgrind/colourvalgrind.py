@@ -52,7 +52,7 @@ class ByAt(Filter):
 
     def apply(self, match):
         output = _prefix(match)
-        output += Fore.YELLOW + match.group('byat')
+        output += Fore.LIGHTWHITE_EX + match.group('byat')
 
         func = self.func_signature(match.group('func'))
         output += Style.RESET_ALL + func
@@ -61,9 +61,9 @@ class ByAt(Filter):
             loc = match.group('loc')
             loc_m = re.match(r"^(?P<file>[^:]+):(?P<line>\d+)$", loc)
             if loc_m:
-                loc = Fore.LIGHTWHITE_EX + loc_m.group('file')
+                loc = Fore.LIGHTCYAN_EX + loc_m.group('file')
                 loc += Fore.LIGHTBLACK_EX + ":"
-                loc += Fore.MAGENTA + loc_m.group('line')
+                loc += Fore.LIGHTYELLOW_EX + loc_m.group('line')
             loc_m = re.match(r"^(?P<in>in\s+)"
                              r"(?P<lib>.*\.(?:a|so|dylib|dll)"
                                 r"(?:(?:\.[0-9]+)+)?)$",
@@ -249,7 +249,7 @@ class Summary(Filter):
             output += Fore.GREEN + header
         # highlight numbers
         text = re.sub(r"\b([0-9][0-9,\.]*)\b",
-                      Fore.MAGENTA + r"\1" + Style.RESET_ALL,
+                      Fore.LIGHTYELLOW_EX + r"\1" + Style.RESET_ALL,
                       match.group('text'))
         output += Style.RESET_ALL + text
 
