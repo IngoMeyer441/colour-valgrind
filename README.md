@@ -1,5 +1,7 @@
 A python wrapper for Valgrind that colours the output for better readability.
 
+Only works with C/C++ signatures right now.
+
 Available on pypi here https://pypi.python.org/pypi/colour-valgrind/
 
 Installation
